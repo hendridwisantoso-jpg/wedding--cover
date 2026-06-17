@@ -1,84 +1,189 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+/* ==========================================
+   CUSTOM SETTING
+========================================== */
+
+:root{
+
+    /* Warna utama */
+    --main-color:#1d3c2b;
+    --button-color:#ffffff;
+    --button-hover:#1d3c2b;
+
+    /* Font */
+    --font-family:Georgia, serif;
+
+    /* Ukuran Judul */
+    --title-small-size:20px;
+    --title-size:55px;
+
+    /* Nama Tamu */
+    --guest-name-size:28px;
+    --guest-name-weight:600;
+
+    /* Instansi */
+    --guest-instansi-size:20px;
+    --guest-instansi-weight:400;
+
+    /* Durasi animasi */
+    --animation-duration:5s;
 }
+
+
+/* ==========================================
+   RESET
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+/* ==========================================
+   BODY
+========================================== */
 
 body{
-font-family:Georgia, serif;
 
-background:url('background.png');
+    font-family:var(--font-family);
 
-background-size:cover;
-background-position:center;
+    background:url('background.png');
 
-height:100vh;
+    background-size:cover;
+    background-position:center;
+
+    height:100vh;
 }
+
+
+/* ==========================================
+   OVERLAY
+========================================== */
 
 .overlay{
 
-height:100vh;
+    height:100vh;
 
-background:rgba(0,0,0,0.25);
+    background:rgba(0,0,0,0.25);
 
-display:flex;
+    display:flex;
 
-justify-content:center;
+    justify-content:center;
 
-align-items:center;
+    align-items:center;
 
-padding:20px;
+    padding:20px;
 }
+
+
+/* ==========================================
+   CONTENT
+========================================== */
 
 .content{
 
     text-align:center;
 
-    color:#1d3c2b;
+    color:var(--main-color);
 
-    animation: tectonicText 5s ease-out forwards;
+    animation:
+    tectonicText
+    var(--animation-duration)
+    ease-out
+    forwards;
 }
+
+
+/* ==========================================
+   TITLE
+========================================== */
 
 .title-small{
 
-font-size:20px;
+    font-size:var(--title-small-size);
 
-margin-bottom:10px;
+    margin-bottom:10px;
 }
 
 h1{
 
-font-size:55px;
+    font-size:var(--title-size);
 
-margin-bottom:40px;
+    margin-bottom:40px;
 }
+
+
+/* ==========================================
+   GUEST
+========================================== */
 
 .guest{
 
-margin-bottom:35px;
+    margin-bottom:35px;
 }
 
 .guest p{
 
-margin-bottom:5px;
+    margin-bottom:5px;
 }
+
+
+/* ==========================================
+   NAMA TAMU
+========================================== */
 
 #guestName{
 
-margin-top:15px;
+    margin-top:15px;
 
-font-size:28px;
+    font-size:var(--guest-name-size);
+
+    font-weight:var(--guest-name-weight);
+
+    color:var(--main-color);
 }
 
 
+/* ==========================================
+   INSTANSI
+========================================== */
+
+#guestInstansi{
+
+    margin-top:8px;
+
+    font-size:var(--guest-instansi-size);
+
+    font-weight:var(--guest-instansi-weight);
+
+    color:var(--main-color);
+
+    opacity:0;
+
+    animation:
+    fadeInstansi
+    2s
+    ease
+    forwards;
+
+    animation-delay:1.5s;
+}
+
+
+/* ==========================================
+   BUTTON
+========================================== */
+
 button{
 
-    background:#ffffff;
-    color:#1d3c2b;
+    background:var(--button-color);
+
+    color:var(--main-color);
 
     padding:15px 35px;
 
-    border:2px solid #1d3c2b;
+    border:2px solid var(--main-color);
 
     border-radius:50px;
 
@@ -90,31 +195,104 @@ button{
 
     transition:all 0.4s ease;
 }
+
 button:hover{
 
-    background:#1d3c2b;
+    background:var(--button-hover);
 
     color:#ffffff;
 
     transform:translateY(-3px);
 }
+
 button:active{
 
-    background:#1d3c2b;
+    background:var(--button-hover);
 
     color:#ffffff;
 
     transform:scale(0.96);
 }
 
+
+/* ==========================================
+   ANIMASI TEKTONIK
+========================================== */
+
+@keyframes tectonicText{
+
+    0%{
+        opacity:0;
+        transform:
+        translateY(60px)
+        rotate(2deg);
+    }
+
+    25%{
+        opacity:1;
+        transform:
+        translateY(-12px)
+        rotate(-1deg);
+    }
+
+    50%{
+        transform:
+        translateY(8px)
+        rotate(0.5deg);
+    }
+
+    75%{
+        transform:
+        translateY(-4px)
+        rotate(-0.3deg);
+    }
+
+    100%{
+        opacity:1;
+        transform:
+        translateY(0)
+        rotate(0deg);
+    }
+}
+
+
+/* ==========================================
+   ANIMASI INSTANSI
+========================================== */
+
+@keyframes fadeInstansi{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(15px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+    }
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
 @media(max-width:768px){
 
-h1{
-font-size:38px;
-}
+    h1{
+        font-size:38px;
+    }
 
-#guestName{
-font-size:22px;
-}
+    #guestName{
+        font-size:22px;
+    }
 
+    #guestInstansi{
+        font-size:16px;
+    }
 }
