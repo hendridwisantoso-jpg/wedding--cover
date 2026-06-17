@@ -7,16 +7,23 @@ params.get("nama") || "Tamu Undangan";
 const instansi =
 params.get("instansi") || "";
 
-document.getElementById("guestName")
+document
+.getElementById("guestName")
 .textContent = nama;
 
 if(instansi){
-    document.getElementById("guestInstansi")
+
+    document
+    .getElementById("guestInstansi")
     .textContent = instansi;
+
 }else{
-    document.getElementById("guestInstansi")
+
+    document
+    .getElementById("guestInstansi")
     .style.display = "none";
 }
+
 
 document
 .getElementById("openInvitation")
