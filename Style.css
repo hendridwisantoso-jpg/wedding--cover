@@ -4,27 +4,66 @@
 
 :root{
 
-    /* Warna utama */
-    --main-color:#1d3c2b;
-    --button-color:#ffffff;
-    --button-hover:#1d3c2b;
+    /* WARNA */
 
-    /* Font */
-    --font-family:Georgia, serif;
+    --color-main:#1d3c2b;
 
-    /* Ukuran Judul */
-    --title-small-size:20px;
-    --title-size:55px;
+    --button-bg:#ffffff;
 
-    /* Nama Tamu */
-    --guest-name-size:28px;
-    --guest-name-weight:600;
+    --button-text:#1d3c2b;
 
-    /* Instansi */
-    --guest-instansi-size:20px;
-    --guest-instansi-weight:400;
+    --button-hover-bg:#1d3c2b;
 
-    /* Durasi animasi */
+    --button-hover-text:#ffffff;
+
+
+    /* FONT */
+
+    --font-title-small:Georgia, serif;
+
+    --font-couple:'Great Vibes', cursive;
+
+    --font-label:Georgia, serif;
+
+    --font-guest:'Cormorant Garamond', serif;
+
+    --font-instansi:'Cormorant Garamond', serif;
+
+    --font-button:Arial, sans-serif;
+
+
+    /* SIZE */
+
+    --size-title-small:20px;
+
+    --size-couple:70px;
+
+    --size-label:18px;
+
+    --size-guest:34px;
+
+    --size-instansi:22px;
+
+    --size-button:18px;
+
+
+    /* WEIGHT */
+
+    --weight-title-small:400;
+
+    --weight-couple:400;
+
+    --weight-label:400;
+
+    --weight-guest:600;
+
+    --weight-instansi:500;
+
+    --weight-button:600;
+
+
+    /* ANIMATION */
+
     --animation-duration:5s;
 }
 
@@ -46,12 +85,15 @@
 
 body{
 
-    font-family:var(--font-family);
+    font-family:Georgia, serif;
 
     background:url('background.png');
 
     background-size:cover;
+
     background-position:center;
+
+    background-repeat:no-repeat;
 
     height:100vh;
 }
@@ -65,7 +107,7 @@ body{
 
     height:100vh;
 
-    background:rgba(0,0,0,0.25);
+    background:rgba(255,255,255,0.15);
 
     display:flex;
 
@@ -85,7 +127,7 @@ body{
 
     text-align:center;
 
-    color:var(--main-color);
+    color:var(--color-main);
 
     animation:
     tectonicText
@@ -101,14 +143,27 @@ body{
 
 .title-small{
 
-    font-size:var(--title-small-size);
+    font-family:var(--font-title-small);
+
+    font-size:var(--size-title-small);
+
+    font-weight:var(--weight-title-small);
+
+    color:var(--color-main);
 
     margin-bottom:10px;
 }
 
+
 h1{
 
-    font-size:var(--title-size);
+    font-family:var(--font-couple);
+
+    font-size:var(--size-couple);
+
+    font-weight:var(--weight-couple);
+
+    color:var(--color-main);
 
     margin-bottom:40px;
 }
@@ -123,7 +178,14 @@ h1{
     margin-bottom:35px;
 }
 
-.guest p{
+
+.guest-label{
+
+    font-family:var(--font-label);
+
+    font-size:var(--size-label);
+
+    color:var(--color-main);
 
     margin-bottom:5px;
 }
@@ -137,11 +199,13 @@ h1{
 
     margin-top:15px;
 
-    font-size:var(--guest-name-size);
+    font-family:var(--font-guest);
 
-    font-weight:var(--guest-name-weight);
+    font-size:var(--size-guest);
 
-    color:var(--main-color);
+    font-weight:var(--weight-guest);
+
+    color:var(--color-main);
 }
 
 
@@ -151,23 +215,23 @@ h1{
 
 #guestInstansi{
 
-    margin-top:8px;
+    margin-top:5px;
 
-    font-size:var(--guest-instansi-size);
+    font-family:var(--font-instansi);
 
-    font-weight:var(--guest-instansi-weight);
+    font-size:var(--size-instansi);
 
-    color:var(--main-color);
+    font-weight:var(--weight-instansi);
+
+    color:var(--color-main);
 
     opacity:0;
 
     animation:
     fadeInstansi
-    2s
-    ease
-    forwards;
+    2s ease forwards;
 
-    animation-delay:1.5s;
+    animation-delay:1s;
 }
 
 
@@ -177,88 +241,92 @@ h1{
 
 button{
 
-    background:var(--button-color);
+    background:var(--button-bg);
 
-    color:var(--main-color);
+    color:var(--button-text);
 
     padding:15px 35px;
 
-    border:2px solid var(--main-color);
+    border:2px solid var(--button-text);
 
     border-radius:50px;
 
-    font-size:18px;
+    font-size:var(--size-button);
 
-    font-weight:600;
+    font-family:var(--font-button);
+
+    font-weight:var(--weight-button);
 
     cursor:pointer;
 
-    transition:all 0.4s ease;
+    transition:all .4s ease;
 }
+
 
 button:hover{
 
-    background:var(--button-hover);
+    background:var(--button-hover-bg);
 
-    color:#ffffff;
+    color:var(--button-hover-text);
 
     transform:translateY(-3px);
 }
 
+
 button:active{
 
-    background:var(--button-hover);
-
-    color:#ffffff;
-
-    transform:scale(0.96);
+    transform:scale(.96);
 }
 
 
 /* ==========================================
-   ANIMASI TEKTONIK
+   ANIMATIONS
 ========================================== */
 
 @keyframes tectonicText{
 
     0%{
+
         opacity:0;
+
         transform:
         translateY(60px)
         rotate(2deg);
     }
 
     25%{
+
         opacity:1;
+
         transform:
         translateY(-12px)
         rotate(-1deg);
     }
 
     50%{
+
         transform:
         translateY(8px)
-        rotate(0.5deg);
+        rotate(.5deg);
     }
 
     75%{
+
         transform:
         translateY(-4px)
-        rotate(-0.3deg);
+        rotate(-.3deg);
     }
 
     100%{
+
         opacity:1;
+
         transform:
         translateY(0)
-        rotate(0deg);
+        rotate(0);
     }
 }
 
-
-/* ==========================================
-   ANIMASI INSTANSI
-========================================== */
 
 @keyframes fadeInstansi{
 
@@ -285,14 +353,22 @@ button:active{
 @media(max-width:768px){
 
     h1{
-        font-size:38px;
+
+        font-size:52px;
     }
 
     #guestName{
-        font-size:22px;
+
+        font-size:26px;
     }
 
     #guestInstansi{
-        font-size:16px;
+
+        font-size:18px;
+    }
+
+    button{
+
+        width:100%;
     }
 }
