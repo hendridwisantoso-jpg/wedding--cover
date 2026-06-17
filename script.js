@@ -1,11 +1,22 @@
 const params =
 new URLSearchParams(window.location.search);
 
-const guest =
-params.get("to") || "Tamu Undangan";
+const nama =
+params.get("nama") || "Tamu Undangan";
+
+const instansi =
+params.get("instansi") || "";
 
 document.getElementById("guestName")
-.textContent = guest;
+.textContent = nama;
+
+if(instansi){
+    document.getElementById("guestInstansi")
+    .textContent = instansi;
+}else{
+    document.getElementById("guestInstansi")
+    .style.display = "none";
+}
 
 document
 .getElementById("openInvitation")
