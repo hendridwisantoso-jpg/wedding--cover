@@ -30,6 +30,6 @@ document
 .addEventListener("click",()=>{
 
 window.location.href =
-"https://myinvitaiontrial.my.canva.site/undangankita";
+"https://undangankita.net/hendriandnorma";
 
 });
